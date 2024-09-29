@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Art Registration Form</title>
+    <link rel="stylesheet" href="/CSS/form.css">
+</head>
+
+<body>
+    <form action="/" method="post" class="form" id="art_form">
+        <img src="/assets/form logo.png" alt="Jyaasa Creative">
+        <h3><span class="A">A</span>rt Class Registration <div class="underline"></div>
+        </h3>
+        <fieldset>
+            <legend>Basic Information</legend>
+            <div>
+                <label for="art_form_no"><b>Form No</b><br><input type="text" id="art_form_no" name="art_form_no"
+                        required></label>
+                <label for="joining_date"><b>Joining Date</b> <br><input id="joining_date" type="date"></label>
+                <label for="preferred_time"><b>Preferred Time</b><br><input type="text" id="preferred_time"
+                        name="preferred_time"></label>
+                <label for="admission_date"><b>Admission Date</b> <br><input type="date" id="admission_date"
+                        name="admission_date"></label>
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>Student Information</legend>
+            <div class="student_information">
+                <label for="student_name"><b>Student name</b><br><input type="text" id="student_name"
+                        name="student_name" required></label>
+                <div class="photo-upload">
+                    <input type="file" id="photo" name="photo" accept="image/*">
+                    <div class="photo-preview">
+                        <span>Click to upload a photo</span>
+                    </div>
+                </div>
+                <label for="guardian_name"><b>Guardian's name</b><br><input type="text" id="guardian_name"
+                        name="guardian_name" required></label>
+                <label for="birthdate"><b>Date of Birth</b> <br><input type="date" id="birthdate"
+                        name="birthdate"></label>
+                <label for="address"><b>Address</b><br><input type="text" id="address" name="address" required
+                        autocomplete="address"></label>
+                <div class="options">
+                    <span><b>Gender</b></span>
+                    <div>
+                        <label for="male">
+                            <input type="radio" id="male" name="gender" value="male">
+                            Male
+                        </label>
+                        <label for="female">
+                            <input type="radio" id="female" name="gender" value="female">
+                            Female
+                        </label>
+                        <label for="other">
+                            <input type="radio" id="other" name="gender" value="other">
+                            Other
+                        </label>
+                    </div>
+                </div>
+                <label for="age" id="label_age" class="hidden"><b>Age</b>
+                    <br><input id="age" type="number" name="age" readonly>
+                </label>
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>Contact Information</legend>
+            <div>
+                <label for="mobile_1"><b>Mobile Number 1</b><br><input type="text" id="mobile_1" name="mobile_1"
+                        onkeydown="restrictKeys(event);" required></label>
+                <label for="mobile_2"><b>Mobile Number 2</b><br><input type="text" id="mobile_2" name="mobile_2"
+                        onkeydown="restrictKeys(event);"></label>
+                <label for="email_id"><b>Email Address</b><br><input type="email" id="email_id" name="email_id"></label>
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>Educational Background</legend>
+            <div>
+                <label for="college_name"><b>School/College Name</b><br><input type="text" id="college_name"
+                        name="college_name" required></label>
+                <label for="college_address"><b>School/College Address</b><br><input type="text" id="college_address"
+                        name="college_address" required></label>
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>Course Plan</legend>
+            <div>
+                <div class="options">
+                    <span><b>Class Plans</b></span>
+                    <div>
+                        <label for="plan1">
+                            <input type="radio" id="plan1" name="plan" value="plan1" onchange="show_art()" required>
+                            Daily Classes 5 days/ week <b>(20 days/month)</b>
+                        </label>
+                        <label for="plan2">
+                            <input type="radio" id="plan2" name="plan" value="plan2" onchange="show_art()" required>
+                            Alternate Classes 3 days/week <b>(12 days/month)</b>
+                        </label>
+                        <label for="plan3">
+                            <input type="radio" id="plan3" name="plan" value="plan3" onchange="show_art()" required>
+                            Twice a week <b>(8 days/month)</b>
+                        </label>
+                        <label for="plan4">
+                            <input type="radio" id="plan4" name="plan" value="plan4" onchange="show_art()" required>
+                            Once a week/ Saturday Classes<b> (4 days/month)</b>
+                        </label>
+                        <label for="plan5">
+                            <input type="radio" id="plan5" name="plan" value="plan5" onchange="show_art()" required>
+                            Art Camp/Vacation class
+                        </label>
+                    </div>
+                </div>
+                <label for="days" id="label_days" class="hidden"><b>Number of days (for art camp)</b>
+                    <br><input id="days" type="number" name="days" onkeydown="restrictKeys(event);" required>
+                </label>
+                <div class="options">
+                    <span><b>Course Type</b></span>
+                    <div>
+                        <label for="basic_course">
+                            <input type="radio" id="basic_course" name="course_type" value="basic_course" required>
+                            Basic Course
+                        </label>
+                        <label for="advance_course">
+                            <input type="radio" id="advance_course" name="course_type" value="advance_course" required>
+                            Advance Course
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>Fees</legend>
+            <div>
+                <label for="admission_fees"><b>Admission Fees</b><br><input type="number" id="admission_fees"
+                        name="college_name" onkeydown="restrictKeys(event);" required></label>
+                <label for="subscription_fee"><b>Subscription Fee</b><br><input type="number" id="subscription_fee"
+                        name="college_name" onkeydown="restrictKeys(event);" required></label>
+
+            </div>
+        </fieldset>
+        <button class="enroll_button" type="submit">Enroll</button>
+    </form>
+    <script src="/JS/form.js"></script>
+    <script>
+        document.getElementById('art_form').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const data = {
+                student_name: document.getElementById('student_name').value,
+                guardian_name: document.getElementById('guardian_name').value,
+                // gender: document.querySelector('input[name="gender"]:checked').value
+            };
+
+            fetch('/api/art', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            })
+                .then(response => response.json())
+                .then(data => console.log(data))
+                .catch(error => console.error('Error:', error));
+        });
+    </script>
+</body>
+
+</html>

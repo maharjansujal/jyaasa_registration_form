@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tuition Registration Form</title>
+    <link rel="stylesheet" href="/CSS/form.css">
+</head>
+
+<body>
+    <form action="" class="form">
+        <img src="/assets/form logo.png" alt="Jyaasa Creative">
+        <h3><span class="A">T</span>uition Class Registration <div class="underline"></div>
+        </h3>
+        <fieldset>
+            <legend>Basic Information</legend>
+            <div>
+                <label for="tuition_form_no"><b>Form No</b><br><input type="text" id="tuition_form_no"
+                        name="tuition_form_no" required></label>
+                <label for="joining_date"><b>Joining Date</b> <br><input id="joining_date" type="date"></label>
+                <label for="preferred_time"><b>Preferred Time</b><br><input type="text" id="preferred_time"
+                        name="preferred_time"></label>
+                <label for="admission_date"><b>Admission Date</b> <br><input type="date" id="admission_date"
+                        name="admission_date"></label>
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>Student Information</legend>
+            <div class="student_information">
+                <label for="student_name"><b>Student name</b><br><input type="text" id="student_name"
+                        name="student_name" required></label>
+                <div class="photo-upload">
+                    <input type="file" id="photo" name="photo" accept="image/*">
+                    <div class="photo-preview">
+                        <span>Click to upload a photo</span>
+                    </div>
+                </div>
+                <label for="guardian_name"><b>Guardian's name</b><br><input type="text" id="guardian_name"
+                        name="guardian_name" required></label>
+                <label for="birthdate"><b>Date of Birth</b> <br><input type="date" id="birthdate"
+                        name="birthdate"></label>
+                <label for="address"><b>Address</b><br><input type="text" id="address" name="address" required
+                        autocomplete="address"></label>
+                <div class="options">
+                    <span><b>Gender</b></span>
+                    <div>
+                        <label for="male">
+                            <input type="radio" id="male" name="gender" value="male">
+                            Male
+                        </label>
+                        <label for="female">
+                            <input type="radio" id="female" name="gender" value="female">
+                            Female
+                        </label>
+                        <label for="other">
+                            <input type="radio" id="other" name="gender" value="other">
+                            Other
+                        </label>
+                    </div>
+                </div>
+
+                <label for="age" id="label_age" class="hidden"><b>Age</b>
+                    <br><input id="age" type="number" name="age" readonly>
+                </label>
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>Contact Information</legend>
+            <div>
+                <label for="mobile_1"><b>Mobile Number 1</b><br><input type="text" id="mobile_1" name="mobile_1"
+                        onkeydown="restrictKeys(event);" required></label>
+                <label for="mobile_2"><b>Mobile Number 2</b><br><input type="text" id="mobile_2" name="mobile_2"
+                        onkeydown="restrictKeys(event);"></label>
+                <label for="email_id"><b>Email Address</b><br><input type="email" id="email_id" name="email_id"></label>
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>Educational Background</legend>
+            <div>
+                <label for="college_name"><b>School/College Name</b><br><input type="text" id="college_name"
+                        name="college_name" required></label>
+                <label for="college_address"><b>School/College Address</b><br><input type="text" id="college_address"
+                        name="college_address" required></label>
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>Course Plan</legend>
+
+            <div>
+                <div class="options">
+                    <span><b>Class Type</b></span>
+                    <div>
+                        <label for="regular_class">
+                            <input type="radio" id="regular_class" name="regular_class" value="regular_class" required>
+                            Regular Class (All subjects)
+                        </label>
+                        <label for="elective_class">
+                            <input type="radio" id="elective_class" name="regular_class" value="elective_class"
+                                required>
+                            Dedicated Class
+                        </label>
+                        <div id="subject_selection" class="hidden">
+                            <b>Choose Subjects:</b>
+                            <div class="subject-selection">
+                                <label><input type="checkbox" name="subject" value="Nepali"> Nepali</label>
+                                <label><input type="checkbox" name="subject" value="English"> English</label>
+                                <label><input type="checkbox" name="subject" value="Maths"> Maths</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>Fees</legend>
+            <div>
+                <label for="admission_fees"><b>Admission Fees</b><br><input type="number" id="admission_fees"
+                        name="college_name" onkeydown="restrictKeys(event);" required></label>
+                <label for="subscription_fee"><b>Subscription Fee</b><br><input type="number" id="subscription_fee"
+                        name="college_name" onkeydown="restrictKeys(event);" required></label>
+            </div>
+        </fieldset>
+        <button class="enroll_button" type="submit">Enroll</button>
+    </form>
+    <script src="/JS/form.js"></script>
+    <script src="/JS/tuition_form.js"></script>
+
+</body>
+
+</html>

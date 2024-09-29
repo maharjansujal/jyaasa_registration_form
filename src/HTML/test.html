@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Information</title>
+    <link rel="stylesheet" href="../CSS/form.css">
+</head>
+<body>
+    <form id="student-form">
+        <fieldset>
+            <legend>Student Information</legend>
+            <div class="student_information">
+                <label for="student_name"><b>Student name</b><br>
+                    <input type="text" id="student_name" name="student_name" required>
+                </label>
+                <label for="guardian_name"><b>Guardian's name</b><br>
+                    <input type="text" id="guardian_name" name="guardian_name" required>
+                </label>
+                <label for="birthdate"><b>Date of Birth</b><br>
+                    <input type="date" id="birthdate" name="birthdate">
+                </label>
+                <label for="address"><b>Address</b><br>
+                    <input type="text" id="address" name="address" required autocomplete="address">
+                </label>
+                <div class="options">
+                    <span><b>Gender</b></span>
+                    <div>
+                        <label for="male">
+                            <input type="radio" id="male" name="gender" value="male">
+                            Male
+                        </label>
+                        <label for="female">
+                            <input type="radio" id="female" name="gender" value="female">
+                            Female
+                        </label>
+                        <label for="other">
+                            <input type="radio" id="other" name="gender" value="other">
+                            Other
+                        </label>
+                    </div>
+                </div>
+                <div class="photo-upload">
+                    <input type="file" id="photo" name="photo" accept="image/*">
+                    <div class="photo-preview">
+                        <span>Click to upload a photo</span>
+                    </div>
+                </div>
+                <label for="age" id="label_age" class="hidden"><b>Age</b>
+                    <br><input id="age" type="number" name="age" readonly>
+                </label>
+                <label for="elective_class">
+                    <input type="radio" id="elective_class" name="regular_class" value="elective_class" required>
+                    Elective Class
+                </label>
+                <div id="subject_selection" class="hidden">
+                    <b>Choose Subjects:</b>
+                    <div class="subject-selection">
+                        <label><input type="checkbox" name="subject" value="Nepali"> Nepali</label>
+                        <label><input type="checkbox" name="subject" value="English"> English</label>
+                        <label><input type="checkbox" name="subject" value="Maths"> Maths</label>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+        <button type="submit">Submit</button>
+    </form>
+    <script src="../js/form.js"></script>
+    <script src="../JS/renderer.js"></script>
+</body>
+</html>
