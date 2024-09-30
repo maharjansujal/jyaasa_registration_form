@@ -13,7 +13,7 @@
         <img src="/assets/form logo.png" alt="Jyaasa Creative">
         <h3><span class="A">A</span>rt Class Registration <div class="underline"></div>
         </h3>
-        <fieldset>
+        <!-- <fieldset>
             <legend>Basic Information</legend>
             <div>
                 <label for="art_form_no"><b>Form No</b><br><input type="text" id="art_form_no" name="art_form_no"
@@ -24,18 +24,18 @@
                 <label for="admission_date"><b>Admission Date</b> <br><input type="date" id="admission_date"
                         name="admission_date"></label>
             </div>
-        </fieldset>
+        </fieldset> -->
         <fieldset>
             <legend>Student Information</legend>
             <div class="student_information">
                 <label for="student_name"><b>Student name</b><br><input type="text" id="student_name"
                         name="student_name" required></label>
-                <div class="photo-upload">
+                <!-- <div class="photo-upload">
                     <input type="file" id="photo" name="photo" accept="image/*">
                     <div class="photo-preview">
                         <span>Click to upload a photo</span>
                     </div>
-                </div>
+                </div> -->
                 <label for="guardian_name"><b>Guardian's name</b><br><input type="text" id="guardian_name"
                         name="guardian_name" required></label>
                 <label for="birthdate"><b>Date of Birth</b> <br><input type="date" id="birthdate"
@@ -74,7 +74,7 @@
                 <label for="email_id"><b>Email Address</b><br><input type="email" id="email_id" name="email_id"></label>
             </div>
         </fieldset>
-        <fieldset>
+        <!-- <fieldset>
             <legend>Educational Background</legend>
             <div>
                 <label for="college_name"><b>School/College Name</b><br><input type="text" id="college_name"
@@ -82,8 +82,8 @@
                 <label for="college_address"><b>School/College Address</b><br><input type="text" id="college_address"
                         name="college_address" required></label>
             </div>
-        </fieldset>
-        <fieldset>
+        </fieldset> -->
+        <!-- <fieldset>
             <legend>Course Plan</legend>
             <div>
                 <div class="options">
@@ -128,8 +128,8 @@
                     </div>
                 </div>
             </div>
-        </fieldset>
-        <fieldset>
+        </fieldset> -->
+        <!-- <fieldset>
             <legend>Fees</legend>
             <div>
                 <label for="admission_fees"><b>Admission Fees</b><br><input type="number" id="admission_fees"
@@ -138,8 +138,8 @@
                         name="college_name" onkeydown="restrictKeys(event);" required></label>
 
             </div>
-        </fieldset>
-        <button class="enroll_button" type="submit">Enroll</button>
+        </fieldset> -->
+        <button class="enroll_button" id="art_enroll_button" type="submit">Enroll</button>
     </form>
     <script src="/JS/form.js"></script>
     <script>
@@ -149,7 +149,13 @@
             const data = {
                 student_name: document.getElementById('student_name').value,
                 guardian_name: document.getElementById('guardian_name').value,
-                // gender: document.querySelector('input[name="gender"]:checked').value
+                birthdate: document.getElementById('birthdate').value,
+                address: document.getElementById('address').value,
+                age: document.getElementById('age').value,
+                gender: document.querySelector('input[name="gender"]:checked').value,
+                mobile_1: document.getElementById('mobile_1').value,
+                mobile_2: document.getElementById('mobile_2').value,
+                email_id: document.getElementById('email_id').value
             };
 
             fetch('/api/art', {

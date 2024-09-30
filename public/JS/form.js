@@ -1,20 +1,20 @@
-document.querySelector('input[type="file"]').addEventListener('change', function (event) {
-    const file = event.target.files[0];
-    const photoPreview = document.querySelector('.photo-preview');
+// document.querySelector('input[type="file"]').addEventListener('change', function (event) {
+//     const file = event.target.files[0];
+//     const photoPreview = document.querySelector('.photo-preview');
 
-    if (file) {
-        const reader = new FileReader();
-        reader.onload = function (e) {
-            const img = document.createElement('img');
-            img.src = e.target.result;
+//     if (file) {
+//         const reader = new FileReader();
+//         reader.onload = function (e) {
+//             const img = document.createElement('img');
+//             img.src = e.target.result;
 
-            photoPreview.innerHTML = '';
+//             photoPreview.innerHTML = '';
 
-            photoPreview.appendChild(img);
-        };
-        reader.readAsDataURL(file);
-    }
-});
+//             photoPreview.appendChild(img);
+//         };
+//         reader.readAsDataURL(file);
+//     }
+// });
 
 function logCurrentLine() {
     try {
@@ -27,22 +27,22 @@ function logCurrentLine() {
 
 window.onload=logCurrentLine;
 
-const show_art = () => {
-    const plan5Radio = document.getElementById('plan5');
-    const daysLabel = document.getElementById('label_days');
+// const show_art = () => {
+//     const plan5Radio = document.getElementById('plan5');
+//     const daysLabel = document.getElementById('label_days');
 
-    if (plan5Radio.checked) {
-        daysLabel.classList.remove('hidden');
-    } else {
-        daysLabel.classList.add('hidden');
-    }
-}
+//     if (plan5Radio.checked) {
+//         daysLabel.classList.remove('hidden');
+//     } else {
+//         daysLabel.classList.add('hidden');
+//     }
+// }
 
 
-const radioButtons = document.querySelectorAll('input[name="plan"]');
-radioButtons.forEach(radio => {
-    radio.addEventListener('change', show_art);
-});
+// const radioButtons = document.querySelectorAll('input[name="plan"]');
+// radioButtons.forEach(radio => {
+//     radio.addEventListener('change', show_art);
+// });
 
 const calculateAge = (birthdate) => {
     const today = new Date();
@@ -59,8 +59,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const birthdate = event.target.value;
         if (birthdate) {
             const calculatedAge = calculateAge(birthdate);
-            console.log('Birthdate:', birthdate);
-            console.log('Calculated Age:', calculatedAge);
             const labelAge = document.getElementById('label_age');
             labelAge.classList.remove('hidden');
             const age = document.getElementById('age');
@@ -120,16 +118,16 @@ const setBirthdate=()=> {
     document.getElementById('birthdate').setAttribute('max', formattedDate);
 }
 
-const setMindate=()=>{
-    const today = new Date();
-    const formattedDate = today.toISOString().split('T')[0];
-    document.getElementById('joining_date').setAttribute('min', formattedDate);
-    document.getElementById('admission_date').setAttribute('min', formattedDate);
-}
-window.onload=()=>{
-    setBirthdate();
-    setMindate();
-}
+// const setMindate=()=>{
+//     const today = new Date();
+//     const formattedDate = today.toISOString().split('T')[0];
+//     document.getElementById('joining_date').setAttribute('min', formattedDate);
+//     document.getElementById('admission_date').setAttribute('min', formattedDate);
+// }
+// window.onload=()=>{
+//     setBirthdate();
+//     setMindate();
+// }
 
 const restrictKeys=(event)=> {
     const restrictedKeys = ["e", "E", "+", "-"];
@@ -137,3 +135,4 @@ const restrictKeys=(event)=> {
         event.preventDefault();
     }
 }
+

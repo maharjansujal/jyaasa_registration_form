@@ -19,6 +19,8 @@ function loadArtStudents() {
                 `;
                 artStudentsBody.appendChild(row);
             });
+            form_no = data.length
+            console.log(form_no)
         })
         .catch(error => {
             console.error('There was a problem with the fetch operation:', error);
