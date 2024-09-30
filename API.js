@@ -24,6 +24,8 @@ const artFormAPI = require('./src/API/artFormAPI');
 app.use('/api/art', artFormAPI);
 // app.use('/api/tuition', tuitionFormAPI);
 
-app.listen(3000, ()=>{
+app.listen(3000, async()=>{
     console.log('Server is running on port 3000...'); 
+    const { default: open } = await import('open');
+    await open('http://localhost:3000');
 })
