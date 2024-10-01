@@ -18,11 +18,11 @@
             <div>
                 <label for="art_form_no"><b>Form No</b><br><input type="text" id="art_form_no" name="art_form_no"
                         readonly></label>
-                <!-- <label for="joining_date"><b>Joining Date</b> <br><input id="joining_date" type="date"></label> -->
-                <!-- <label for="preferred_time"><b>Preferred Time</b><br><input type="text" id="preferred_time"
-                        name="preferred_time"></label> -->
-                <!-- <label for="admission_date"><b>Admission Date</b> <br><input type="date" id="admission_date"
-                        name="admission_date"></label> -->
+                <label for="joining_date"><b>Joining Date</b> <br><input id="joining_date" type="date"></label>
+                <label for="preferred_time"><b>Preferred Time</b><br><input type="text" id="preferred_time"
+                        name="preferred_time"></label>
+                <label for="admission_date"><b>Admission Date</b> <br><input type="date" id="admission_date"
+                        name="admission_date"></label>
             </div>
         </fieldset>
         <fieldset>
@@ -30,12 +30,12 @@
             <div class="student_information">
                 <label for="student_name"><b>Student name</b><br><input type="text" id="student_name"
                         name="student_name" required></label>
-                <!-- <div class="photo-upload">
+                <div class="photo-upload">
                     <input type="file" id="photo" name="photo" accept="image/*">
                     <div class="photo-preview">
                         <span>Click to upload a photo</span>
                     </div>
-                </div> -->
+                </div>
                 <label for="guardian_name"><b>Guardian's name</b><br><input type="text" id="guardian_name"
                         name="guardian_name" required></label>
                 <label for="birthdate"><b>Date of Birth</b> <br><input type="date" id="birthdate"
@@ -74,16 +74,16 @@
                 <label for="email_id"><b>Email Address</b><br><input type="email" id="email_id" name="email_id"></label>
             </div>
         </fieldset>
-        <!-- <fieldset>
+        <fieldset>
             <legend>Educational Background</legend>
             <div>
-                <label for="college_name"><b>School/College Name</b><br><input type="text" id="college_name"
-                        name="college_name" required></label>
-                <label for="college_address"><b>School/College Address</b><br><input type="text" id="college_address"
-                        name="college_address" required></label>
+                <label for="school_name"><b>School/College Name</b><br><input type="text" id="school_name"
+                        name="school_name" required></label>
+                <label for="school_address"><b>School/College Address</b><br><input type="text" id="school_address"
+                        name="school_address" required></label>
             </div>
-        </fieldset> -->
-        <!-- <fieldset>
+        </fieldset>
+        <fieldset>
             <legend>Course Plan</legend>
             <div>
                 <div class="options">
@@ -112,7 +112,7 @@
                     </div>
                 </div>
                 <label for="days" id="label_days" class="hidden"><b>Number of days (for art camp)</b>
-                    <br><input id="days" type="number" name="days" onkeydown="restrictKeys(event);" required>
+                    <br><input id="days" type="number" name="days" onkeydown="restrictKeys(event);">
                 </label>
                 <div class="options">
                     <span><b>Course Type</b></span>
@@ -128,7 +128,7 @@
                     </div>
                 </div>
             </div>
-        </fieldset> -->
+        </fieldset>
         <!-- <fieldset>
             <legend>Fees</legend>
             <div>
@@ -155,7 +155,15 @@
                 gender: document.querySelector('input[name="gender"]:checked').value,
                 mobile_1: document.getElementById('mobile_1').value,
                 mobile_2: document.getElementById('mobile_2').value,
-                email_id: document.getElementById('email_id').value
+                email_id: document.getElementById('email_id').value,
+                joining_date: document.getElementById('joining_date').value,
+                school_name: document.getElementById('school_name').value,
+                school_address: document.getElementById('school_address').value,
+                preferred_time: document.getElementById('preferred_time').value,
+                admission_date: document.getElementById('admission_date').value,
+                class_plans: document.querySelector('input[name="plan"]:checked').value,
+                number_of_days: document.getElementById('days').value,
+                course_type: document.querySelector('input[name="course_type"]:checked').value,
             };
 
             fetch('/api/art', {

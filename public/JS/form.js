@@ -27,22 +27,22 @@ function logCurrentLine() {
 
 window.onload=logCurrentLine;
 
-// const show_art = () => {
-//     const plan5Radio = document.getElementById('plan5');
-//     const daysLabel = document.getElementById('label_days');
+const show_art = () => {
+    const plan5Radio = document.getElementById('plan5');
+    const daysLabel = document.getElementById('label_days');
 
-//     if (plan5Radio.checked) {
-//         daysLabel.classList.remove('hidden');
-//     } else {
-//         daysLabel.classList.add('hidden');
-//     }
-// }
+    if (plan5Radio.checked) {
+        daysLabel.classList.remove('hidden');
+    } else {
+        daysLabel.classList.add('hidden');
+    }
+}
 
 
-// const radioButtons = document.querySelectorAll('input[name="plan"]');
-// radioButtons.forEach(radio => {
-//     radio.addEventListener('change', show_art);
-// });
+const radioButtons = document.querySelectorAll('input[name="plan"]');
+radioButtons.forEach(radio => {
+    radio.addEventListener('change', show_art);
+});
 
 const calculateAge = (birthdate) => {
     const today = new Date();
@@ -118,12 +118,12 @@ const setBirthdate=()=> {
     document.getElementById('birthdate').setAttribute('max', formattedDate);
 }
 
-// const setMindate=()=>{
-//     const today = new Date();
-//     const formattedDate = today.toISOString().split('T')[0];
-//     document.getElementById('joining_date').setAttribute('min', formattedDate);
-//     document.getElementById('admission_date').setAttribute('min', formattedDate);
-// }
+const setMindate=()=>{
+    const today = new Date();
+    const formattedDate = today.toISOString().split('T')[0];
+    document.getElementById('joining_date').setAttribute('min', formattedDate);
+    document.getElementById('admission_date').setAttribute('min', formattedDate);
+}
 
 
 const restrictKeys=(event)=> {
@@ -148,7 +148,7 @@ const fix_art_form_number=()=>{
         })
 }
 window.onload=()=>{
-    // setBirthdate();
-    // setMindate();
+    setBirthdate();
+    setMindate();
     fix_art_form_number();
 }
