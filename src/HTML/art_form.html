@@ -9,11 +9,11 @@
 </head>
 
 <body>
-    <form action="/" method="post" class="form" id="art_form">
+    <form action="/" method="post" class="form" id="art_form" enctype="multipart/form-data">
         <img src="/assets/form logo.png" alt="Jyaasa Creative">
         <h3><span class="A">A</span>rt Class Registration <div class="underline"></div>
         </h3>
-        <fieldset>
+        <!-- <fieldset>
             <legend>Basic Information</legend>
             <div>
                 <label for="art_form_no"><b>Form No</b><br><input type="text" id="art_form_no" name="art_form_no"
@@ -24,19 +24,19 @@
                 <label for="admission_date"><b>Admission Date</b> <br><input type="date" id="admission_date"
                         name="admission_date"></label>
             </div>
-        </fieldset>
+        </fieldset> -->
         <fieldset>
             <legend>Student Information</legend>
             <div class="student_information">
-                <label for="student_name"><b>Student name</b><br><input type="text" id="student_name"
-                        name="student_name" required></label>
+                <!-- <label for="student_name"><b>Student name</b><br><input type="text" id="student_name"
+                        name="student_name" required></label> -->
                 <div class="photo-upload">
-                    <input type="file" id="photo" name="photo" accept="image/*">
+                    <input type="file" id="art_photo" name="art_photo" accept="image/*">
                     <div class="photo-preview">
                         <span>Click to upload a photo</span>
                     </div>
                 </div>
-                <label for="guardian_name"><b>Guardian's name</b><br><input type="text" id="guardian_name"
+                <!-- <label for="guardian_name"><b>Guardian's name</b><br><input type="text" id="guardian_name"
                         name="guardian_name" required></label>
                 <label for="birthdate"><b>Date of Birth</b> <br><input type="date" id="birthdate"
                         name="birthdate"></label>
@@ -62,9 +62,9 @@
                 <label for="age" id="label_age" class="hidden"><b>Age</b>
                     <br><input id="age" type="number" name="age" readonly>
                 </label>
-            </div>
+            </div> -->
         </fieldset>
-        <fieldset>
+        <!-- <fieldset>
             <legend>Contact Information</legend>
             <div>
                 <label for="mobile_1"><b>Mobile Number 1</b><br><input type="text" id="mobile_1" name="mobile_1"
@@ -73,8 +73,8 @@
                         onkeydown="restrictKeys(event);"></label>
                 <label for="email_id"><b>Email Address</b><br><input type="email" id="email_id" name="email_id"></label>
             </div>
-        </fieldset>
-        <fieldset>
+        </fieldset> -->
+        <!-- <fieldset>
             <legend>Educational Background</legend>
             <div>
                 <label for="school_name"><b>School/College Name</b><br><input type="text" id="school_name"
@@ -82,8 +82,8 @@
                 <label for="school_address"><b>School/College Address</b><br><input type="text" id="school_address"
                         name="school_address" required></label>
             </div>
-        </fieldset>
-        <fieldset>
+        </fieldset> -->
+        <!-- <fieldset>
             <legend>Course Plan</legend>
             <div>
                 <div class="options">
@@ -128,11 +128,11 @@
                     </div>
                 </div>
             </div>
-        </fieldset>
+        </fieldset> -->
         <!-- <fieldset>
             <legend>Fees</legend>
             <div>
-                <label for="admission_fees"><b>Admission Fees</b><br><input type="number" id="admission_fees"
+                <label for="admission_fee"><b>Admission Fees</b><br><input type="number" id="admission_fee"
                         name="college_name" onkeydown="restrictKeys(event);" required></label>
                 <label for="subscription_fee"><b>Subscription Fee</b><br><input type="number" id="subscription_fee"
                         name="college_name" onkeydown="restrictKeys(event);" required></label>
@@ -142,10 +142,10 @@
         <button class="enroll_button" id="art_enroll_button" type="submit">Enroll</button>
     </form>
     <script src="/JS/form.js"></script>
-    <script>
+    <!-- <script>
         document.getElementById('art_form').addEventListener('submit', function (e) {
             e.preventDefault();
-
+            const imageFile = document.getElementById('art_photo').files[0];
             const data = {
                 student_name: document.getElementById('student_name').value,
                 guardian_name: document.getElementById('guardian_name').value,
@@ -164,6 +164,9 @@
                 class_plans: document.querySelector('input[name="plan"]:checked').value,
                 number_of_days: document.getElementById('days').value,
                 course_type: document.querySelector('input[name="course_type"]:checked').value,
+                subscription_fee: document.getElementById('subscription_fee').value,
+                admission_fee: document.getElementById('admission_fee').value,
+                file :document.getElementById('art_photo').files[0]
             };
 
             fetch('/api/art', {
@@ -175,7 +178,42 @@
                 .then(data => console.log(data))
                 .catch(error => console.error('Error:', error));
         });
+    </script> -->
+    <script>
+        document.getElementById('art_form').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const formData = new FormData();
+            // formData.append('art_form_no', document.getElementById('art_form_no').value);
+            // formData.append('student_name', document.getElementById('student_name').value);
+            // formData.append('guardian_name', document.getElementById('guardian_name').value);
+            // formData.append('birthdate', document.getElementById('birthdate').value);
+            // formData.append('address', document.getElementById('address').value);
+            // formData.append('age', document.getElementById('age').value);
+            // formData.append('gender', document.querySelector('input[name="gender"]:checked').value);
+            // formData.append('mobile_1', document.getElementById('mobile_1').value);
+            // formData.append('mobile_2', document.getElementById('mobile_2').value);
+            // formData.append('email_id', document.getElementById('email_id').value);
+            // formData.append('joining_date', document.getElementById('joining_date').value);
+            // formData.append('school_name', document.getElementById('school_name').value);
+            // formData.append('school_address', document.getElementById('school_address').value);
+            // formData.append('preferred_time', document.getElementById('preferred_time').value);
+            // formData.append('admission_date', document.getElementById('admission_date').value);
+            // formData.append('class_plans', document.querySelector('input[name="plan"]:checked').value);
+            // formData.append('number_of_days', document.getElementById('days').value);
+            // formData.append('course_type', document.querySelector('input[name="course_type"]:checked').value);
+            // formData.append('subscription_fee', document.getElementById('subscription_fee').value);
+            // formData.append('admission_fee', document.getElementById('admission_fee').value);
+            formData.append('art_photo', document.getElementById('art_photo').files[0]);
+            fetch('/api/art', {
+                method: 'POST',
+                body: formData
+            })
+                .then(response => response.json())
+                .catch(error => console.error('Error:', error));
+        });
     </script>
+
 </body>
 
 </html>
