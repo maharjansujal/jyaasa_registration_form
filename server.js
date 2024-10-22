@@ -33,5 +33,5 @@ app.use('/api/test-art', testArtFormAPI);
 app.listen(3000, async()=>{
     console.log('Server is running on port 3000...'); 
     const { default: open } = await import('open');
-    await open('http://localhost:8000');
+    await open('http://localhost:3000');
 })
