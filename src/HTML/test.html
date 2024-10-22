@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <form class="form" id="art_form" enctype="multipart/form-data">
+    <form class="form" id="art_form">
         <img src="/assets/form logo.png" alt="Jyaasa Creative">
         <h3><span class="A">A</span>rt Class Registration <div class="underline"></div>
         </h3>
@@ -23,25 +23,35 @@
                     </div>
                 </div>
         </fieldset>
-        <button class="enroll_button" id="art_enroll_button" type="submit">Enroll</button>
+        <button class="enroll_button" id="art_enroll_button">Enroll</button>
+        <!-- <img src="https://i.imgur.com/OxtH77R.jpeg" width="auto" height="auto" alt=""> -->
     </form>
     <script src="/JS/test.js"></script>
     <script>
-        document.getElementById('art_form').addEventListener('submit', function (e) {
+        document.getElementById('art_enroll_button').addEventListener('click', function (e) {
             e.preventDefault();
-            const formData = new FormData();
-            imageFile = document.getElementById('art_photo').files[0];
-            console.log("I'm html wala photo",imageFile);
-            formData.append('art_photo', imageFile);
-            console.log("Appended file:", formData.get('art_photo'));
-            fetch('/api/test_art', {
-                method: 'POST',
-                body: formData
+            var formData = new FormData();
+            formData.append("image", document.getElementById('art_photo').files[0]);
+
+            fetch("https://api.imgur.com/3/image", {
+                method: "POST",
+                headers: {
+                    "Authorization": "Client-ID 5691f35dcd0280f"
+                },
+                body: formData,
+                cache: "no-cache",
             })
                 .then(response => response.json())
+                .then(data => {
+                    console.log(data);
+                    var photo = data.data.link;
+                    console.log(photo);
+                    var photo_hash = data.data.deletehash;
+                })
                 .catch(error => console.error('Error:', error));
         });
-        
+
+
     </script>
 
 </body>

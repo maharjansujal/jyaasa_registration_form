@@ -1,0 +1,28 @@
+<h3>A demonstration of how to access a File Upload Button</h3>
+
+<input type="file" id="myFile">
+<button id="submitBtn">Submit</button>
+
+<script>
+document.getElementById('submitBtn').addEventListener('click', function() {
+    var formData = new FormData();
+    formData.append("image", document.getElementById('myFile').files[0]);
+
+    fetch("https://api.imgur.com/3/image", {
+        method: "POST",
+        headers: {
+            "Authorization": "Client-ID 5691f35dcd0280f"
+        },
+        body: formData,
+        cache: "no-cache",
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log(data);
+        var photo = data.data.link;
+        console.log(photo);
+        var photo_hash = data.data.deletehash;
+    })
+    .catch(error => console.error('Error:', error));
+});
+</script>
