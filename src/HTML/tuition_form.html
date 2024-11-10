@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <form action="" class="form">
+    <form id="tuition_form" action="/" method="post" class="form">
         <img src="/assets/form logo.png" alt="Jyaasa Creative">
         <h3><span class="A">T</span>uition Class Registration <div class="underline"></div>
         </h3>
@@ -17,7 +17,7 @@
             <legend>Basic Information</legend>
             <div>
                 <label for="tuition_form_no"><b>Form No</b><br><input type="text" id="tuition_form_no"
-                        name="tuition_form_no" required></label>
+                        name="tuition_form_no" readonly></label>
                 <label for="joining_date"><b>Joining Date</b> <br><input id="joining_date" type="date"></label>
                 <label for="preferred_time"><b>Preferred Time</b><br><input type="text" id="preferred_time"
                         name="preferred_time"></label>
@@ -92,20 +92,22 @@
                     <span><b>Class Type</b></span>
                     <div>
                         <label for="regular_class">
-                            <input type="radio" id="regular_class" name="regular_class" value="regular_class" required>
+                            <input type="radio" id="regular_class" name="class_type" value="regular_class" required>
                             Regular Class (All subjects)
                         </label>
                         <label for="elective_class">
-                            <input type="radio" id="elective_class" name="regular_class" value="elective_class"
-                                required>
+                            <input type="radio" id="elective_class" name="class_type" value="elective_class" required>
                             Dedicated Class
                         </label>
                         <div id="subject_selection" class="hidden">
                             <b>Choose Subjects:</b>
-                            <div class="subject-selection">
+                            <div class="chosen_subjects">
                                 <label><input type="checkbox" name="subject" value="Nepali"> Nepali</label>
                                 <label><input type="checkbox" name="subject" value="English"> English</label>
-                                <label><input type="checkbox" name="subject" value="Maths"> Maths</label>
+                                <label><input type="checkbox" name="subject" value="Maths"> Compulsory Maths</label>
+                                <label><input type="checkbox" name="subject" value="Maths"> Optional Maths</label>
+                                <label><input type="checkbox" name="subject" value="Science"> Science</label>
+                                <label><input type="checkbox" name="subject" value="Science">Computer Science</label>
                             </div>
                         </div>
                     </div>
@@ -115,8 +117,8 @@
         <fieldset>
             <legend>Fees</legend>
             <div>
-                <label for="admission_fees"><b>Admission Fees</b><br><input type="number" id="admission_fees"
-                        name="college_name" onkeydown="restrictKeys(event);" required></label>
+                <label for="admission_fee"><b>Admission Fee</b><br><input type="number" id="admission_fee"
+                        name="admission_fee" onkeydown="restrictKeys(event);" required></label>
                 <label for="subscription_fee"><b>Subscription Fee</b><br><input type="number" id="subscription_fee"
                         name="college_name" onkeydown="restrictKeys(event);" required></label>
             </div>
@@ -125,7 +127,54 @@
     </form>
     <script src="/JS/form.js"></script>
     <script src="/JS/tuition_form.js"></script>
+    <script>
+        document.getElementById('tuition_form').addEventListener('submit', function (event) {
+            event.preventDefault();
+            var formData = new FormData();
+            formData.append('tuition_form_no', document.getElementById('tuition_form_no').value);
+            formData.append('joining_date', document.getElementById('joining_date').value);
+            formData.append('preferred_time', document.getElementById('preferred_time').value);
+            formData.append('admission_date', document.getElementById('admission_date').value);
+            formData.append('student_name', document.getElementById('student_name').value);
+            formData.append('guardian_name', document.getElementById('guardian_name').value);
+            formData.append('birthdate', document.getElementById('birthdate').value);
+            formData.append('age', document.getElementById('age').value);
+            formData.append('address', document.getElementById('address').value);
+            formData.append('gender', document.querySelector('input[name="gender"]:checked').value);
+            formData.append('mobile_1', document.getElementById('mobile_1').value);
+            formData.append('mobile_2', document.getElementById('mobile_2').value);
+            formData.append('email_id', document.getElementById('email_id').value);
+            formData.append('college_name', document.getElementById('college_name').value);
+            formData.append('college_address', document.getElementById('college_address').value);
+            formData.append('class_type', document.querySelector('input[name="class_type"]:checked').value);
+            const selectedSubjects = document.querySelectorAll('input[name="subject"]:checked');
+            if (selectedSubjects.length > 0) {
+                selectedSubjects.forEach(subject => {
+                    formData.append('chosen_subjects[]', subject.value);
+                });
+            } else {
+                formData.append('chosen_subjects', 'none');
+            }
+            formData.append('admission_fee', document.getElementById('admission_fee').value);
+            formData.append('subscription_fee', document.getElementById('subscription_fee').value);
+            formData.forEach(function (value, key) {
+                console.log(key + ': ' + value);
+            });
+            fetch('/api/tuition', {
+                method: 'POST',
+                body: formData,
+            })
+                .then(response => response.json())
+                .then(data => {
+                    console.log("Success", data);
+                    console.log("formData: ", formData);
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                });
+        })
 
+    </script>
 </body>
 
 </html>

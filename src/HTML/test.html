@@ -4,55 +4,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Art Registration Form</title>
-    <link rel="stylesheet" href="/CSS/form.css">
+    <title>Styled Table</title>
+    <style>
+        table {
+            width: 70%;
+            border-collapse: collapse;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 0 auto;
+        }
+
+        th {
+            background-color: #400F60;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+
+        td {
+            padding: 8px;
+            text-align: center;
+        }
+
+        tr {
+            background-color: white;
+        }
+
+        tr:hover {
+            background-color: #8e37c8;
+            color: white;
+            cursor: pointer;
+        }
+
+        td,
+        th {
+            border: 1px solid #ddd;
+        }
+    </style>
 </head>
 
 <body>
-    <form class="form" id="art_form">
-        <img src="/assets/form logo.png" alt="Jyaasa Creative">
-        <h3><span class="A">A</span>rt Class Registration <div class="underline"></div>
-        </h3>
-        <fieldset>
-            <legend>Student Information</legend>
-            <div class="student_information">
-                <div class="photo-upload">
-                    <input type="file" id="art_photo" name="art_photo" accept="image/*">
-                    <div class="photo-preview">
-                        <span>Click to upload a photo</span>
-                    </div>
-                </div>
-        </fieldset>
-        <button class="enroll_button" id="art_enroll_button">Enroll</button>
-        <!-- <img src="https://i.imgur.com/OxtH77R.jpeg" width="auto" height="auto" alt=""> -->
-    </form>
-    <script src="/JS/test.js"></script>
-    <script>
-        document.getElementById('art_enroll_button').addEventListener('click', function (e) {
-            e.preventDefault();
-            var formData = new FormData();
-            formData.append("image", document.getElementById('art_photo').files[0]);
 
-            fetch("https://api.imgur.com/3/image", {
-                method: "POST",
-                headers: {
-                    "Authorization": "Client-ID 5691f35dcd0280f"
-                },
-                body: formData,
-                cache: "no-cache",
-            })
-                .then(response => response.json())
-                .then(data => {
-                    console.log(data);
-                    var photo = data.data.link;
-                    console.log(photo);
-                    var photo_hash = data.data.deletehash;
-                })
-                .catch(error => console.error('Error:', error));
-        });
-
-
-    </script>
+    <table id="detailsTable">
+        <thead>
+            <tr>
+                <th>Header 1</th>
+                <th>Header 2</th>
+                <th>Header 3</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Row 1, Cell 1</td>
+                <td>Row 1, Cell 2</td>
+                <td>Row 1, Cell 3</td>
+            </tr>
+            <tr>
+                <td>Row 2, Cell 1</td>
+                <td>Row 2, Cell 2</td>
+                <td>Row 2, Cell 3</td>
+            </tr>
+            <tr>
+                <td>Row 3, Cell 1</td>
+                <td>Row 3, Cell 2</td>
+                <td>Row 3, Cell 3</td>
+            </tr>
+        </tbody>
+    </table>
 
 </body>
 
