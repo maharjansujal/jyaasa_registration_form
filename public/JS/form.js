@@ -16,15 +16,6 @@ document.querySelector('input[type="file"]').addEventListener('change', function
     }
 });
 
-// function logCurrentLine() {
-//     try {
-//         throw new Error();
-//     } catch (e) {
-//         const stackLines = e.stack.split('\n');
-//         console.log(`I am in line: ${stackLines[2]}`);
-//     }
-// }
-
 const show_art = () => {
     const plan5Radio = document.getElementById('plan5');
     const daysLabel = document.getElementById('label_days');

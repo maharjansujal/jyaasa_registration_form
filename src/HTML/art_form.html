@@ -90,23 +90,23 @@
                     <span><b>Class Plans</b></span>
                     <div>
                         <label for="plan1">
-                            <input type="radio" id="plan1" name="plan" value="plan1" onchange="show_art()" required>
+                            <input type="radio" id="plan1" name="plan" value="20 days/month" onchange="show_art()" required>
                             Daily Classes 5 days/ week <b>(20 days/month)</b>
                         </label>
                         <label for="plan2">
-                            <input type="radio" id="plan2" name="plan" value="plan2" onchange="show_art()" required>
+                            <input type="radio" id="plan2" name="plan" value="12 days/month" onchange="show_art()" required>
                             Alternate Classes 3 days/week <b>(12 days/month)</b>
                         </label>
                         <label for="plan3">
-                            <input type="radio" id="plan3" name="plan" value="plan3" onchange="show_art()" required>
+                            <input type="radio" id="plan3" name="plan" value="8 days/month" onchange="show_art()" required>
                             Twice a week <b>(8 days/month)</b>
                         </label>
                         <label for="plan4">
-                            <input type="radio" id="plan4" name="plan" value="plan4" onchange="show_art()" required>
+                            <input type="radio" id="plan4" name="plan" value="4 days/month" onchange="show_art()" required>
                             Once a week/ Saturday Classes<b> (4 days/month)</b>
                         </label>
                         <label for="plan5">
-                            <input type="radio" id="plan5" name="plan" value="plan5" onchange="show_art()" required>
+                            <input type="radio" id="plan5" name="plan" value="Art Camp/Vacation class" onchange="show_art()" required>
                             Art Camp/Vacation class
                         </label>
                     </div>
@@ -166,7 +166,7 @@
             formData.append('course_type', document.querySelector('input[name="course_type"]:checked').value);
             formData.append('subscription_fee', document.getElementById('subscription_fee').value);
             formData.append('admission_fee', document.getElementById('admission_fee').value);
-            console.log(formData.art_form_no);
+            formData.append('art_photo', document.getElementById('art_photo').files[0]);
             fetch('/api/art', {
                 method: 'POST',
                 body: formData,

@@ -31,7 +31,7 @@
                 <label for="student_name"><b>Student name</b><br><input type="text" id="student_name"
                         name="student_name" required></label>
                 <div class="photo-upload">
-                    <input type="file" id="photo" name="photo" accept="image/*">
+                    <input type="file" id="tuition_photo" name="tuition_photo" accept="image/*">
                     <div class="photo-preview">
                         <span>Click to upload a photo</span>
                     </div>
@@ -95,8 +95,8 @@
                             <input type="radio" id="regular_class" name="class_type" value="regular_class" required>
                             Regular Class (All subjects)
                         </label>
-                        <label for="elective_class">
-                            <input type="radio" id="elective_class" name="class_type" value="elective_class" required>
+                        <label for="dedicated_class">
+                            <input type="radio" id="dedicated_class" name="class_type" value="dedicated_class" required>
                             Dedicated Class
                         </label>
                         <div id="subject_selection" class="hidden">
@@ -147,6 +147,7 @@
             formData.append('college_name', document.getElementById('college_name').value);
             formData.append('college_address', document.getElementById('college_address').value);
             formData.append('class_type', document.querySelector('input[name="class_type"]:checked').value);
+            formData.append('tuition_photo', document.getElementById('tuition_photo').files[0]);
             const selectedSubjects = document.querySelectorAll('input[name="subject"]:checked');
             if (selectedSubjects.length > 0) {
                 selectedSubjects.forEach(subject => {
@@ -157,9 +158,6 @@
             }
             formData.append('admission_fee', document.getElementById('admission_fee').value);
             formData.append('subscription_fee', document.getElementById('subscription_fee').value);
-            formData.forEach(function (value, key) {
-                console.log(key + ': ' + value);
-            });
             fetch('/api/tuition', {
                 method: 'POST',
                 body: formData,

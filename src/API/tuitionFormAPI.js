@@ -1,10 +1,13 @@
 const express = require('express');
-const app = express();
+const axios = require('axios');
+const multer = require('multer');
+const FormData = require('form-data');
 const router = express.Router();
 const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
 
-app.use(bodyParser.urlencoded({extended: true}));
+const storage = multer.memoryStorage();
+const upload = multer({ storage: storage });
+
 const tuitionSchema = new mongoose.Schema({
     tuition_form_no: String,
     joining_date: String,
@@ -24,14 +27,15 @@ const tuitionSchema = new mongoose.Schema({
     class_type: String,
     chosen_subjects: String,
     admission_fee: String,
-    subscription_fee: String
+    subscription_fee: String,
+    tuition_photo_url: String
 });
 
 const TuitionStudent = mongoose.model('Tuition', tuitionSchema);
 
-router.post('/', (req,res)=>{
-    console.log(req.body);
-    const {tuition_form_no,
+router.post('/',upload.single('tuition_photo'), async(req,res)=>{
+    const {
+        tuition_form_no,
         joining_date,
         preferred_time,
         admission_date,
@@ -51,6 +55,17 @@ router.post('/', (req,res)=>{
         admission_fee,
         subscription_fee
     } = req.body;
+    const formData = new FormData();
+        formData.append('image', req.file.buffer, 'image.jpg');
+    
+        const response = await axios.post('https://api.imgur.com/3/image', formData, {
+          headers: {
+            'Authorization': 'Client-ID aca6d2502f5bfd8', 
+            ...formData.getHeaders(), 
+          },
+        });
+    
+        const tuition_photo_url = response.data.data.link;
     const newTuitionStudent = new TuitionStudent({
         tuition_form_no,
         preferred_time,
@@ -71,7 +86,8 @@ router.post('/', (req,res)=>{
         class_type,
         chosen_subjects,
         admission_fee,
-        subscription_fee
+        subscription_fee,
+        tuition_photo_url
     })
     console.log(newTuitionStudent);
     newTuitionStudent.save()
