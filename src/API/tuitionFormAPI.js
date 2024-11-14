@@ -26,7 +26,7 @@ const tuitionSchema = new mongoose.Schema({
     college_name: String,
     college_address: String,
     class_type: String,
-    chosen_subjects: String,
+    chosen_subjects: [String],
     admission_fee: String,
     subscription_fee: String,
     tuition_photo_url: String
@@ -83,7 +83,6 @@ router.post('/',upload.single('tuition_photo'), async(req,res)=>{
         mobile_2,
         email_id,
         joining_date,
-        preferred_time,
         college_name,
         college_address,
         class_type,
