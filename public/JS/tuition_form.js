@@ -55,8 +55,8 @@ window.onload=()=>{
     fix_tuition_form_number();
     updateSubjectSelection();
     getClassDuration();
-    const regular_class_radio = document.querySelectorAll('input[name="regular_class"]');
-    regular_class_radio.forEach(radio => {
+    const dedicated_class_radio = document.querySelectorAll('input[name="class_type"]');
+    dedicated_class_radio.forEach(radio => {
         radio.addEventListener('change', updateSubjectSelection);
     });
     const preferred_time_radio = document.querySelectorAll("input[name='preferred_time']");
