@@ -19,8 +19,19 @@
                 <label for="art_form_no"><b>Form No</b><br><input type="text" id="art_form_no" name="art_form_no"
                         readonly></label>
                 <label for="joining_date"><b>Joining Date</b> <br><input id="joining_date" type="date"></label>
-                <label for="preferred_time"><b>Preferred Time</b><br><input type="text" id="preferred_time"
-                        name="preferred_time"></label>
+                <div class="options">
+                    <span><b>Class Duration</b></span>
+                    <div>
+                        <label for="one_hour">
+                            <input type="radio" id="one_hour" name="class_duration" value="1 hr">
+                            1 hour
+                        </label>
+                        <label for="two_hour">
+                            <input type="radio" id="two_hour" name="class_duration" value="2 hrs">
+                            2 hours
+                        </label>
+                    </div>
+                </div>
                 <label for="admission_date"><b>Admission Date</b> <br><input type="date" id="admission_date"
                         name="admission_date"></label>
             </div>
@@ -149,6 +160,7 @@
             formData.append('art_form_no', document.getElementById('art_form_no').value);
             formData.append('student_name', document.getElementById('student_name').value);
             formData.append('guardian_name', document.getElementById('guardian_name').value);
+            formData.append('class_duration', document.querySelector('input[name="class_duration"]:checked').value)
             formData.append('birthdate', document.getElementById('birthdate').value);
             formData.append('address', document.getElementById('address').value);
             formData.append('age', document.getElementById('age').value);

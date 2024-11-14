@@ -19,10 +19,29 @@
                 <label for="tuition_form_no"><b>Form No</b><br><input type="text" id="tuition_form_no"
                         name="tuition_form_no" readonly></label>
                 <label for="joining_date"><b>Joining Date</b> <br><input id="joining_date" type="date"></label>
-                <label for="preferred_time"><b>Preferred Time</b><br><input type="text" id="preferred_time"
-                        name="preferred_time"></label>
+                <div class="options">
+                    <span><b>Preferred Time</b></span>
+                    <div>
+                        <label for="five_to_six">
+                            <input type="radio" id="five_to_six" name="preferred_time" value="5P.M. to 6P.M.">
+                            5P.M. to 6P.M.
+                        </label>
+                        <label for="six_to_seven">
+                            <input type="radio" id="six_to_seven" name="preferred_time" value="6P.M. to 7P.M.">
+                            6P.M. to 7P.M.
+                        </label>
+                        <label for="five_to_seven">
+                            <input type="radio" id="five_to_seven" name="preferred_time" value="5P.M. to 7P.M.">
+                            5P.M. to 7P.M.
+                        </label>
+                    </div>
+                </div>
                 <label for="admission_date"><b>Admission Date</b> <br><input type="date" id="admission_date"
                         name="admission_date"></label>
+                        <label for="class_duration" id="label_class_duration" class="hidden">
+                            <b>Class Duration</b><br>
+                            <input type="text" id="class_duration" name="class_duration" readonly>
+                        </label>
             </div>
         </fieldset>
         <fieldset>
@@ -133,6 +152,8 @@
             var formData = new FormData();
             formData.append('tuition_form_no', document.getElementById('tuition_form_no').value);
             formData.append('joining_date', document.getElementById('joining_date').value);
+            formData.append('preferred_time', document.querySelector('input[name="preferred_time"]:checked').value);
+            formData.append('class_duration', document.getElementById('class_duration').value);
             formData.append('preferred_time', document.getElementById('preferred_time').value);
             formData.append('admission_date', document.getElementById('admission_date').value);
             formData.append('student_name', document.getElementById('student_name').value);

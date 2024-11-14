@@ -12,6 +12,7 @@ const tuitionSchema = new mongoose.Schema({
     tuition_form_no: String,
     joining_date: String,
     preferred_time: String,
+    class_duration: String,
     admission_date: String,
     student_name: String,
     guardian_name: String,
@@ -38,6 +39,7 @@ router.post('/',upload.single('tuition_photo'), async(req,res)=>{
         tuition_form_no,
         joining_date,
         preferred_time,
+        class_duration,
         admission_date,
         student_name,
         guardian_name,
@@ -69,6 +71,7 @@ router.post('/',upload.single('tuition_photo'), async(req,res)=>{
     const newTuitionStudent = new TuitionStudent({
         tuition_form_no,
         preferred_time,
+        class_duration,
         admission_date,
         student_name,
         guardian_name,
