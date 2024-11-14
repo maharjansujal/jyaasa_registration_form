@@ -18,7 +18,7 @@
             <div>
                 <label for="art_form_no"><b>Form No</b><br><input type="text" id="art_form_no" name="art_form_no"
                         readonly></label>
-                <label for="joining_date"><b>Joining Date</b> <br><input id="joining_date" type="date"></label>
+                <label for="joining_date"><b>Joining Date</b> <br><input id="joining_date" type="date" required></label>
                 <div class="options">
                     <span><b>Class Duration</b></span>
                     <div>
@@ -33,7 +33,7 @@
                     </div>
                 </div>
                 <label for="admission_date"><b>Admission Date</b> <br><input type="date" id="admission_date"
-                        name="admission_date"></label>
+                        name="admission_date" required></label>
             </div>
         </fieldset>
         <fieldset>
@@ -50,7 +50,7 @@
                 <label for="guardian_name"><b>Guardian's name</b><br><input type="text" id="guardian_name"
                         name="guardian_name" required></label>
                 <label for="birthdate"><b>Date of Birth</b> <br><input type="date" id="birthdate"
-                        name="birthdate"></label>
+                        name="birthdate" required></label>
                 <label for="address"><b>Address</b><br><input type="text" id="address" name="address" required
                         autocomplete="address"></label>
                 <div class="options">
@@ -171,7 +171,6 @@
             formData.append('joining_date', document.getElementById('joining_date').value);
             formData.append('school_name', document.getElementById('school_name').value);
             formData.append('school_address', document.getElementById('school_address').value);
-            formData.append('preferred_time', document.getElementById('preferred_time').value);
             formData.append('admission_date', document.getElementById('admission_date').value);
             formData.append('class_plans', document.querySelector('input[name="plan"]:checked').value);
             formData.append('number_of_days', document.getElementById('days').value);
