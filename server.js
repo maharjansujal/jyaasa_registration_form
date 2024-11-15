@@ -1,9 +1,9 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
 const path = require('path');
 const app = express();
-
+const dotenv = require('dotenv');
+const fetch = require('node-fetch');
 
 app.use(express.json());
 
@@ -24,8 +24,9 @@ const tuitionFormAPI = require('./src/API/tuitionFormAPI');
 app.use('/api/art', artFormAPI);
 app.use('/api/tuition', tuitionFormAPI);
 
-app.listen(3000, async()=>{
-    console.log('Server is running on port 3000...'); 
+app.listen(3000, async () => {
+    console.log('Server is running on port 3000...');
     const { default: open } = await import('open');
     await open('http://localhost:3000');
-})
+});
+

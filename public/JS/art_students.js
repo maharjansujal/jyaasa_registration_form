@@ -7,24 +7,25 @@ function loadArtStudents() {
             return response.json();
         })
         .then(data => {
-            // const artStudentsBody = document.getElementById('artStudentsBody');
-            // artStudentsBody.innerHTML = '';
-            // data.forEach(student => {
-            //     const row = document.createElement('tr');
-            //     row.innerHTML = `
-            //         <td>${student.student_name}</td>
-            //         <td>${student.guardian_name}</td>
-            //     `;
-            //     artStudentsBody.appendChild(row);
-            // });
-            // form_no = data.length
-            // console.log(form_no)
+            const studentsContainer = document.getElementById('students');
+            
+            data.forEach(student => {
+                const div = document.createElement('div');
+                div.className = 'student_card';
+                
+                div.innerHTML = `
+                    <div class="img">
+                        <img src="${student.art_photo_url}" alt="Student Image">
+                    </div>
+                    <h3 class="student_name ${student.gender}">${student.student_name}</h3>
+                `;
+                
+                studentsContainer.appendChild(div);
+            });
         })
-        // .catch(error => {
-        //     console.error('There was a problem with the fetch operation:', error);
-        // }
-    // );
+        .catch(error => {
+            console.error('There was a problem with the fetch operation:', error);
+        });
 }
 
-// Call loadArtStudents when the page loads
 window.onload = loadArtStudents;

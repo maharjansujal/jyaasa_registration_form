@@ -23,5 +23,5 @@ function setIframeHeight() {
 window.addEventListener('resize', setIframeHeight);
 window.addEventListener('load', setIframeHeight);
 document.addEventListener('DOMContentLoaded', () => {
-    openTab('welcome');
+    openTab('art_students');
 });
