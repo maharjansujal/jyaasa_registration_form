@@ -7,21 +7,27 @@ function loadTuitionStudents() {
             return response.json();
         })
         .then(data => {
-            data.sort((a, b) => a.student_name.localeCompare(b.student_name));
-            const tuitionStudentsBody = document.getElementById('tuitionStudentsBody');
-            tuitionStudentsBody.innerHTML = '';
+            const loadingElement = document.getElementById('loading');
+            loadingElement.style.display = "none";
+            const studentsContainer = document.getElementById('students');
+            
             data.forEach(student => {
-                const row = document.createElement('tr');
-                row.innerHTML = `
-                    <td>${student.student_name}</td>
-                    <td>${student.Age}</td>
-                    <td>${student.joining_date}</td>
+                const div = document.createElement('div');
+                div.className = 'student_card';
+                
+                div.innerHTML = `
+                    <div class="img">
+                        <img src="${student.tuition_photo_url}" alt="Student Image">
+                    </div>
+                    <h3 class="student_name ${student.gender}">${student.student_name}</h3>
                 `;
-                tuitionStudentsBody.appendChild(row);
+                
+                studentsContainer.appendChild(div);
             });
         })
         .catch(error => {
             console.error('There was a problem with the fetch operation:', error);
+            loadingElement.style.display = "none";
         });
 }
 

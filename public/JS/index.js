@@ -1,3 +1,10 @@
+function reloadIframe(tabId) {
+    const iframe = document.querySelector(`#${tabId} iframe`);
+    if (iframe) {
+        iframe.contentWindow.location.reload();
+    }
+}
+
 function openTab(tabId) {
     const contents = document.querySelectorAll('.tab-content');
     contents.forEach(content => {
@@ -9,14 +16,16 @@ function openTab(tabId) {
     });
     document.getElementById(tabId).classList.add('active');
     document.querySelector(`.tab-button[onclick="openTab('${tabId}')"]`).classList.add('active');
+    reloadIframe(tabId);
 }
+window.openTab = openTab;
 
 function setIframeHeight() {
     const viewportHeight = window.innerHeight;
     const iframes = document.querySelectorAll('iframe');
 
     iframes.forEach(function(iframe) {
-        iframe.style.height = 0.75*viewportHeight + 'px';
+        iframe.style.height = 0.75 * viewportHeight + 'px';
     });
 }
 

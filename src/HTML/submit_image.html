@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h3>A demonstration of how to access a File Upload Button</h3>
+
+    <input type="file" id="myFile">
+
+    <button id="submitBtn">Submit</button>
+    <script>
+        document.getElementById('submitBtn').addEventListener('click', function () {
+    var formData = new FormData();
+    var fileInput = document.getElementById('myFile');
+    formData.append('image', fileInput.files[0]);
+
+    fetch('https://api.imgur.com/3/image', {
+        method: 'POST',
+        headers: {
+            'Authorization': 'Client-ID aca6d2502f5bfd8'
+        },
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log(data);
+        var photo_link = data.data.link;
+        console.log(photo_link);
+        var photo_hash = data.data.deletehash;
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+});
+    </script>
+</body>
+
+</html>

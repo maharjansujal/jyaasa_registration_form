@@ -8,23 +8,27 @@ function loadArtStudents() {
         })
         .then(data => {
             const studentsContainer = document.getElementById('students');
-            
+            const loadingElement = document.getElementById('loading');
+            loadingElement.style.display = "none";
             data.forEach(student => {
-                const div = document.createElement('div');
-                div.className = 'student_card';
+                const student_card = document.createElement('div');
+                student_card.className = 'student_card';
                 
-                div.innerHTML = `
+                student_card.innerHTML = `
                     <div class="img">
                         <img src="${student.art_photo_url}" alt="Student Image">
                     </div>
                     <h3 class="student_name ${student.gender}">${student.student_name}</h3>
                 `;
-                
-                studentsContainer.appendChild(div);
+                student_card.addEventListener('click', () => {
+                    window.location.href = `/src/HTML/art_student_profile.html?art_form_no=${student.art_form_no}`;
+                });
+                studentsContainer.appendChild(student_card);
             });
         })
         .catch(error => {
             console.error('There was a problem with the fetch operation:', error);
+            loadingElement.style.display = "none";
         });
 }
 

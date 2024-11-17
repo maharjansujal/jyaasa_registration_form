@@ -1,0 +1,134 @@
+@font-face {
+    font-family: 'Century Gothic';
+    src: url('/font/CenturyGothic.TTF');
+}
+*{
+    font-family: 'Century Gothic';
+}
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+header {
+    background-color: #400F60;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
+
+h1 {
+    margin: 0;
+    font-size: 36px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.profile-header {
+    display: flex;
+    align-items: center;  /* Vertically center the name and birthdate next to the photo */
+    margin-bottom: 30px;
+}
+
+.profile-header .photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+    margin-right: 20px;
+}
+
+.profile-header .name {
+    font-size: 32px;
+    font-weight: bold;
+    color: #400F60;
+    margin-bottom: 5px;
+}
+
+.profile-header .birthdate {
+    font-size: 18px;
+    color: #888;
+}
+
+
+.section {
+    margin-bottom: 30px;
+}
+
+.section h2 {
+    font-size: 24px;
+    color: #400F60;
+    border-bottom: 2px solid #400F60;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+}
+
+.section p {
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.column {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.column:last-child {
+    margin-right: 0;
+}
+
+.field {
+    font-weight: bold;
+    color: #400F60;
+}
+
+.value {
+    font-weight: normal;
+    color: #555;
+}
+
+.line {
+    border-top: 2px solid #400F60;
+    margin: 20px 0;
+}
+
+.button {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #400F60;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+.button:hover {
+    background-color: #320c4f;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #400F60;
+    color: white;
+    margin-top: 40px;
+    font-size: 14px;
+}

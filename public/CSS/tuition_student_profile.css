@@ -1,0 +1,196 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'CenturyGothic';
+}
+
+body {
+    background-color: #f5f5f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+}
+
+/* Profile Container */
+.profile-container {
+    background-color: #fff;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 900px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    overflow: hidden;
+}
+
+/* Profile Header */
+.profile-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #400F60;
+    padding-bottom: 20px;
+}
+
+.profile-img img {
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    margin-right: 30px;
+    border: 4px solid #400F60;
+}
+
+.profile-info {
+    flex: 1;
+}
+
+.student-name {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #400F60;
+}
+
+.student-id, .student-joining-date {
+    color: #333;
+    margin-top: 10px;
+}
+
+/* Profile Details Section */
+.profile-details {
+    margin-bottom: 30px;
+}
+
+.profile-details h3 {
+    font-size: 1.5rem;
+    color: #400F60;
+    margin-bottom: 10px;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+.info-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.info-row span {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* Action Buttons */
+.action-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.action-buttons button {
+    background-color: rgba(255, 255, 255, 0);
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    color: black;
+    font-size: 14px;
+    padding: 12px 24px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.action-buttons button:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 1);
+    transform: scale(1.05);
+}
+
+.action-buttons button:active {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 1);
+    transform: scale(0.98);
+}
+
+/* Photo Upload Preview */
+.photo-upload {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    border: 2px dotted rgb(243, 243, 243);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    color: grey;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.photo-preview {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; /* Hide overflow to fit image within bounds */
+    z-index: 1;
+}
+
+.photo-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image covers the box while maintaining aspect ratio */
+}
+
+.photo-upload input[type='file'] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.photo-upload span {
+    position: relative;
+    z-index: 3;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .profile-header {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .profile-img img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .profile-info {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .action-buttons button {
+        margin-top: 10px;
+    }
+}
