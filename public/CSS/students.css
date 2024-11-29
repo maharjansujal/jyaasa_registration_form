@@ -12,28 +12,24 @@
     width: 100px;
 }
 
-.student-card {
-    background: #f3f3f3;
-    padding: 10px;
-    margin: 10px 0;
-    border-radius: 5px;
-    border: 1px solid #ddd;
-}
 #students {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    width: 90%;
+    margin: 0 auto;
 }
 
 .student_card {
-    width: 150px;
-    height: 200px;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    height: auto;
     background-color: white;
     border-radius: 15px;
     border: 1px solid rgba(0, 0, 0, 0.2);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 10px;
-    margin: 10px;
     transition: transform 0.3s ease-in-out;
 }
 
@@ -44,13 +40,11 @@
 }
 
 .img {
-    width: 100px;
-    height: 100px;
-    margin: 0 auto;
-    padding: 10px 0;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
+    margin-right: 10px; /* Space between image and text */
     overflow: hidden;
-    border: 2px solid rgba(0, 0, 0, 0.1);
 }
 
 img {
@@ -58,14 +52,12 @@ img {
     height: 100%;
     object-fit: cover;
     object-position: center;
-    border-radius: 50%;
 }
 
 .student_name {
-    text-align: center;
-    font-size: 1.2rem;
-    margin-top: 10px;
+    font-size: 1rem;
     color: #333;
+    text-align: left; /* Align text to the left */
 }
 
 .student_name.female {

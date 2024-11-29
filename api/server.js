@@ -2,8 +2,6 @@ const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
 const app = express();
-const dotenv = require('dotenv');
-const fetch = require('node-fetch');
 
 app.use(express.json());
 
