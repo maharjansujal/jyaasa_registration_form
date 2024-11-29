@@ -10,18 +10,17 @@ mongoose.connect('mongodb+srv://sujalmaharjan:sujal123@cluster0.wisam.mongodb.ne
     .then(() => console.log('Connected to MongoDB...'))
     .catch(err => console.error('Could not connect to MongoDB...', err));
 
-// Serve static files from the public folder (relative to the root)
-app.use(express.static(path.join(__dirname, '..', 'public'))); // Going one level up from `api/` to `project root`
-app.use('/src/HTML', express.static(path.join(__dirname, '..', 'src', 'HTML'))); // Correct relative path
+app.use(express.static(path.join(__dirname, '..', 'public')));
+app.use('/src/HTML', express.static(path.join(__dirname, '..', 'src', 'HTML')));
 
 // Route to serve index.html
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '..', 'src', 'HTML', 'index.html')); // Correct path
+    res.sendFile(path.join(__dirname, '..', 'src', 'HTML', 'index.html'));
 });
 
 // Import routes for the APIs
-const artFormAPI = require(path.join(__dirname, '..', 'src', 'API', 'artFormAPI')); // Correct relative import
-const tuitionFormAPI = require(path.join(__dirname, '..', 'src', 'API', 'tuitionFormAPI')); // Correct relative import
+const artFormAPI = require(path.join(__dirname, '..', 'src', 'services', 'artFormAPI'));
+const tuitionFormAPI = require(path.join(__dirname, '..', 'src', 'services', 'tuitionFormAPI'));
 
 app.use('/api/art', artFormAPI);
 app.use('/api/tuition', tuitionFormAPI);
