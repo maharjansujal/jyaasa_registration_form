@@ -1,0 +1,25 @@
+Jyaasa_record_system/
+   _node_modules/
+   api/
+    server.js
+   public/
+    assets/
+    css/
+    font/
+    js/
+   src/
+    API/
+        artFormAPI.js
+        tuition_formAPI.js
+    HTML/
+        art_form.html
+        art_student_profile.html
+        art_students.html
+        index.html
+        tuition_form.html
+        tuition_student_profile.html
+        tuition_students.html
+   nodemon.json
+   package-lock.json
+   package.json
+   vercel.json

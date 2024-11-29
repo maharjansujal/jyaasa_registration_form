@@ -1,6 +1,6 @@
 {
-    "watch": ["public", "src", "server.js"],
+    "watch": ["public", "src", "api/server.js"],
     "ext": "js,html,css",     
-    "exec": "node server.js"
+    "exec": "node api/server.js"
   }
   
